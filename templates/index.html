@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Capstone App</title>
+  </head>
+  <body>
+    <h1>Welcome</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for m in messages %}
+            <li>{{ m }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    {% if current_user.is_authenticated %}
+      <p>Logged in as {{ current_user.username }}</p>
+      <p><a href="{{ url_for('logout') }}">Logout</a></p>
+      {% if current_user.role == 'admin' %}
+        <p><a href="{{ url_for('admin') }}">Admin</a></p>
+      {% endif %}
+    {% else %}
+      <p><a href="{{ url_for('login') }}">Login</a> | <a href="{{ url_for('register') }}">Register</a></p>
+    {% endif %}
+
+    <form action="{{ url_for('search') }}" method="get">
+      <input name="q" value="" placeholder="Search users">
+      <button type="submit">Search</button>
+    </form>
+  </body>
+</html>
