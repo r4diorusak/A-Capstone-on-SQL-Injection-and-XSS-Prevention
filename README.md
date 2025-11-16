@@ -54,26 +54,6 @@ Tests include:
 - CSRF: Flask-WTF is enabled to protect form endpoints from CSRF attacks.
 - Authentication: Passwords are hashed with Werkzeug's recommended methods; Flask-Login manages sessions.
 
-## How Copilot assisted
-Copilot suggested common Flask patterns and libraries (Flask-Login, Werkzeug hashing, SQLAlchemy ORM, WTForms). These suggestions were reviewed and adapted — they sped up scaffolding but every security-relevant decision (validators, unique-username checks, RBAC enforcement) was manually implemented and tested.
-
-## Submission checklist
-- [x] GitHub repository created
-- [x] Secure input validation and SQLi prevention implemented
-- [x] Authentication and RBAC implemented
-- [x] Vulnerabilities identified and fixed (SQLi, XSS)
-- [x] Tests added for SQLi and XSS
-- [x] Vulnerability summary included (`VULNERABILITY_SUMMARY.md`)
-
-## Next steps / improvements
-- Use a production-ready database and environment variables for secrets.
-- Add account lockout, rate limiting, and logging for suspicious activity.
-- Expand test coverage (CSRF, RBAC enforcement, session handling).
-
-If you want, I can also add a short one-paragraph submission summary to the README or add a script that bootstraps an admin user. Tell me which and I'll apply it.
-
-Capstone: SQL Injection and XSS Prevention
-
 This is a minimal Flask app demonstrating secure input handling, role-based access control, and tests for SQL injection and XSS.
 
 Files:
@@ -87,3 +67,4 @@ How to run:
 3. Run `pytest -q` to run the tests.
 
 Notes: This is a teaching skeleton. Change `SECRET_KEY` and DB for production.
+
